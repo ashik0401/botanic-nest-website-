@@ -126,12 +126,7 @@ All sensitive keys (Firebase, MongoDB URI, etc.) are stored in `.env` files and 
  - Go to http://localhost:3000 to use the application locally.
 ---
 
-## 📌 GitHub Commit Requirements
 
-- ✅ **15+ meaningful commits** on the client side
-- ✅ **8+ meaningful commits** on the server side
-
----
 
 ## 👨‍💻 Author
 
