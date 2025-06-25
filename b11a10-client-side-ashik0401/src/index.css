@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap');
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+
+
+.new {
+  font-family: "Playwrite DK Loopet", cursive;
+  font-optical-sizing: auto;
+  font-weight: bolder;
+  font-style: normal;
+}
