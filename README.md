@@ -88,6 +88,43 @@ A full-stack, responsive web application to help users log, track, and manage ca
 All sensitive keys (Firebase, MongoDB URI, etc.) are stored in `.env` files and never exposed in code.
 
 ---
+## 🛠️ Local Installation and Setup
+
+## 1. Clone the repository
+
+
+## 2. Setup the Client
+- cd client
+- npm install
+
+- Create a .env file inside the /client folder with:
+- REACT_APP_API_URL=http://localhost:5000
+- REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
+- REACT_APP_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+- REACT_APP_FIREBASE_PROJECT_ID=your_firebase_project_id
+- REACT_APP_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+- REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_firebase_sender_id
+- REACT_APP_FIREBASE_APP_ID=your_firebase_app_id
+
+- Start the React client:
+- npm run dev
+
+## 3. Setup the Server
+- cd ../server
+- npm install
+
+- Create a .env file inside the /server folder with:
+- PORT=5000
+- MONGO_URI=your_mongodb_connection_string
+- JWT_SECRET=your_jwt_secret
+- FIREBASE_SERVICE_ACCOUNT=your_firebase_service_account_json_as_string_or_path
+
+- Start the server:
+- npm run start
+
+ - Open in Browser
+ - Go to http://localhost:3000 to use the application locally.
+---
 
 ## 📌 GitHub Commit Requirements
 
