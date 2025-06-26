@@ -27,7 +27,7 @@ const Update = () => {
             return;
         }
 
-        fetch(`https://plants-care-app.vercel.app/update-plants/${plant._id}`, {
+        fetch(`https://botanic-nest.vercel.app/update-plants/${plant._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -1,7 +1,8 @@
 {
   "projects": {
-    "default": "plant-care-app-5b85c",
-    "firebase use dev": "plant-care-app-5b85c"
+    "default": "botanic-nest",
+    "firebase use dev": "plant-care-app-5b85c",
+    "dev": "botanic-nest"
   },
   "targets": {},
   "etags": {}

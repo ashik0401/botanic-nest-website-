@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         hydrateFallbackElement: <Loading></Loading>,
-        loader: () => fetch('https://plants-care-app.vercel.app/new-plants'),
+        loader: () => fetch('https://botanic-nest.vercel.app/new-plants'),
         Component: Home
       },
       {
@@ -44,13 +44,13 @@ export const router = createBrowserRouter([
       {
         path: '/all-plants',
         hydrateFallbackElement: <Loading></Loading>,
-        loader: () => fetch('https://plants-care-app.vercel.app/all-plants'),
+        loader: () => fetch('https://botanic-nest.vercel.app/all-plants'),
         Component: AllPlants
       },
       {
         path: '/all-plants/:id',
         hydrateFallbackElement: <Loading></Loading>,
-        loader: ({ params }) => fetch(`https://plants-care-app.vercel.app/all-plants/${params.id}`),
+        loader: ({ params }) => fetch(`https://botanic-nest.vercel.app/all-plants/${params.id}`),
         Component: PlantsDetails
       },
       {
@@ -78,7 +78,7 @@ export const router = createBrowserRouter([
       {
         path: '/add-plants/:id',
         hydrateFallbackElement: <Loading></Loading>,
-        loader: ({ params }) => fetch(`https://plants-care-app.vercel.app/new-plants/${params.id}`),
+        loader: ({ params }) => fetch(`https://botanic-nest.vercel.app/new-plants/${params.id}`),
         Component: PlantsDetails
       },
     ]
@@ -91,13 +91,13 @@ export const router = createBrowserRouter([
       {
         index: true,
         hydrateFallbackElement: <Loading></Loading>,
-        loader: () => fetch('https://plants-care-app.vercel.app/all-plants'),
+        loader: () => fetch('https://botanic-nest.vercel.app/all-plants'),
         Component: MyPlants
       },
       {
         path: '/my-plants/:id',
         hydrateFallbackElement: <Loading></Loading>,
-        loader: ({ params }) => fetch(`https://plants-care-app.vercel.app/all-plants/${params.id}`),
+        loader: ({ params }) => fetch(`https://botanic-nest.vercel.app/all-plants/${params.id}`),
         Component: MyPlants
       },
 
@@ -111,7 +111,7 @@ export const router = createBrowserRouter([
       {
         path: '/update-plants/:id',
         hydrateFallbackElement: <Loading></Loading>,
-        loader: ({ params }) => fetch(`https://plants-care-app.vercel.app/all-plants/${params.id}`),
+        loader: ({ params }) => fetch(`https://botanic-nest.vercel.app/all-plants/${params.id}`),
         Component: Update
 
       }

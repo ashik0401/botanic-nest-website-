@@ -8,12 +8,12 @@ const DashboardOverview = () => {
     const [myPlants, setMyPlants] = useState(0);
 
     useEffect(() => {
-        fetch('https://plants-care-app.vercel.app/plants-count')
+        fetch('https://botanic-nest.vercel.app/plants-count')
             .then(res => res.json())
             .then(data => setTotalPlants(data.total));
 
         if (user?.email) {
-            fetch(`https://plants-care-app.vercel.app/plants-count/${user.email}`)
+            fetch(`https://botanic-nest.vercel.app/plants-count/${user.email}`)
                 .then(res => res.json())
                 .then(data => setMyPlants(data.total));
         }
@@ -23,7 +23,7 @@ const DashboardOverview = () => {
         <div className="p-6 md:p-10 bg-[#f9fcf7] min-h-screen text-black">
             <h2 className="text-3xl font-bold mb-6 text-green-700">🌿 Dashboard Overview</h2>
 
-            {/* Stats Section */}
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
                 <div className="bg-white shadow-md p-6 rounded-2xl flex items-center gap-5 hover:shadow-lg transition">
                     <div className="text-green-600 text-4xl"><FaLeaf /></div>
@@ -48,7 +48,7 @@ const DashboardOverview = () => {
                 </div>
             </div>
 
-            {/* Profile Section */}
+            
             <div className="bg-white p-8 rounded-2xl shadow-lg max-w-4xl mx-auto">
                 <h3 className="text-2xl font-bold text-green-700 mb-6">👤 User Profile</h3>
 
