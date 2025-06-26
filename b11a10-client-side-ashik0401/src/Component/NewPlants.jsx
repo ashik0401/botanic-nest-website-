@@ -1,31 +1,30 @@
 import React from 'react';
-import '../App.css';
 import { Link } from 'react-router';
 
 const NewPlants = ({ plant }) => {
-
-    const { _id,name, photo, category, careLevel } = plant
+    const { _id, name, photo, category, careLevel } = plant;
 
     return (
-        <div className='mb-5'>
-            <div className="card custom-responsive shadow-sm p-5 responsive-card-mid md:h-full h-[500px] transition-transform duration-300 hover:-translate-y-2 bg-[#F1F8E9] dark:text-black">
-                <figure className='rounded-xl'>
+        <div className="w-full">
+            <div className="card h-full bg-[#F1F8E9] shadow-md rounded-md overflow-hidden transition-transform duration-300 hover:-translate-y-2 dark:text-black">
+                <figure className="w-full h-48 md:h-56 lg:h-64">
                     <img
-                        className='h-96 min-w-full '
                         src={photo}
-                        alt="Shoes" />
+                        alt={name}
+                        className="w-full h-full object-cover"
+                    />
                 </figure>
-                <div className="card-body">
-                    <h2 className="text-2xl font-semibold">{name}</h2>
-                    <p className='text-lg'><strong>category: </strong>{category}</p>
-                    <p className='text-lg'><strong>careLevel: </strong>{careLevel}</p>
-             
-                    
-                    <div className="card-actions justify-end">
+                <div className="card-body p-4 flex flex-col gap-2">
+                    <h2 className="text-xl font-semibold">{name}</h2>
+                    <p className="text-base"><strong>Category:</strong> {category}</p>
+                    <p className="text-base"><strong>Care Level:</strong> {careLevel}</p>
+                    <div className="card-actions justify-end mt-auto">
                         <Link
-
-                        to={`/add-plants/${_id}`}
-                        className="btn bg-[#689F38] border-none">view Details</Link>
+                            to={`/add-plants/${_id}`}
+                            className="btn bg-[#689F38] text-white border-none"
+                        >
+                            View Details
+                        </Link>
                     </div>
                 </div>
             </div>

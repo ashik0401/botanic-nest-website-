@@ -14,6 +14,11 @@ import PlantsDetails from "../Component/PlantsDetails";
 import Error from "../Pages/Error";
 import Update from "../Component/Update";
 import Loading from "../Component/Loading";
+import AboutUs from "../Component/Navbar/AboutUs";
+import Contact from "../Component/Navbar/Contact";
+import Support from "../Component/Navbar/Support";
+import DashboardOverview from "../Pages/DashboardOverview";
+import DashboardLayout from "../LayOuts/DashboardLayout";
 
 
 
@@ -24,7 +29,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        hydrateFallbackElement:<Loading></Loading>,
+        hydrateFallbackElement: <Loading></Loading>,
         loader: () => fetch('https://plant-care-tracker-sarver.vercel.app/new-plants'),
         Component: Home
       },
@@ -38,15 +43,27 @@ export const router = createBrowserRouter([
       },
       {
         path: '/all-plants',
-         hydrateFallbackElement:<Loading></Loading>,
+        hydrateFallbackElement: <Loading></Loading>,
         loader: () => fetch('https://plant-care-tracker-sarver.vercel.app/all-plants'),
         Component: AllPlants
       },
       {
         path: '/all-plants/:id',
-         hydrateFallbackElement:<Loading></Loading>,
+        hydrateFallbackElement: <Loading></Loading>,
         loader: ({ params }) => fetch(`https://plant-care-tracker-sarver.vercel.app/all-plants/${params.id}`),
         Component: PlantsDetails
+      },
+      {
+        path: '/aboutUs',
+        Component: AboutUs
+      },
+      {
+        path: '/contact',
+        Component: Contact
+      },
+      {
+        path: '/support',
+        Component: Support
       }
     ]
   },
@@ -60,7 +77,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/add-plants/:id',
-         hydrateFallbackElement:<Loading></Loading>,
+        hydrateFallbackElement: <Loading></Loading>,
         loader: ({ params }) => fetch(`https://plant-care-tracker-sarver.vercel.app/new-plants/${params.id}`),
         Component: PlantsDetails
       },
@@ -73,13 +90,13 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-         hydrateFallbackElement:<Loading></Loading>,
+        hydrateFallbackElement: <Loading></Loading>,
         loader: () => fetch('https://plant-care-tracker-sarver.vercel.app/all-plants'),
         Component: MyPlants
       },
       {
         path: '/my-plants/:id',
-         hydrateFallbackElement:<Loading></Loading>,
+        hydrateFallbackElement: <Loading></Loading>,
         loader: ({ params }) => fetch(`https://plant-care-tracker-sarver.vercel.app/all-plants/${params.id}`),
         Component: MyPlants
       },
@@ -90,10 +107,10 @@ export const router = createBrowserRouter([
     path: '/update-plants',
     element: <PrivateRoute><AddPlants /></PrivateRoute>,
     children: [
-      
+
       {
         path: '/update-plants/:id',
-         hydrateFallbackElement:<Loading></Loading>,
+        hydrateFallbackElement: <Loading></Loading>,
         loader: ({ params }) => fetch(`https://plant-care-tracker-sarver.vercel.app/all-plants/${params.id}`),
         Component: Update
 
@@ -104,6 +121,18 @@ export const router = createBrowserRouter([
   {
     path: '*',
     Component: Error
-  }
+  },
+  {
+    path: '/dashboard',
+    element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
+    children: [
+      {
+        index: true,
+        Component: DashboardOverview
+      }
+    ]
+  },
+  
+
 
 ]);

@@ -1,11 +1,9 @@
 import React from 'react';
 import Navbar from '../Component/Navbar';
-import { Outlet, useNavigation } from 'react-router';
 import Footer from '../Component/Footer';
-import Loading from '../Component/Loading';
+import { Outlet } from 'react-router';
 
-const MainLayOuts = () => {
-      const navigation = useNavigation();
+const DashboardLayout = () => {
     return (
         <div className="min-h-screen flex flex-col justify-between  bg-base-300">
             <Navbar />
@@ -17,4 +15,4 @@ const MainLayOuts = () => {
     );
 };
 
-export default MainLayOuts;
+export default DashboardLayout;

@@ -2,6 +2,8 @@ import Banner from './Banner';
 import { useLoaderData } from 'react-router';
 import NewPlants from './NewPlants';
 import leaf from '../assets/leaf-plant.png';
+import PromotionalOffer from './Home/PromotionalOffer';
+import Newsletter from './Home/Newsletter';
 
 const Home = () => {
     const data = useLoaderData();
@@ -9,21 +11,21 @@ const Home = () => {
     return (
         <div>
             <Banner />
-            <div className='mt-10'>
-                <div className='flex items-center'>
+            <div className='md:w-11/12 mx-auto px-5'>
+                <div className='flex items-center mt-10 mb-5'>
                     <img className='w-20 h-20 bg-transparent' src={leaf} alt="" />
                     <h2 className='text-[#8BC34A] text-4xl font-semibold my-3 new'>
                         <i>new arrivals</i>
                     </h2>
                 </div>
-                <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 responsive-card-mid-xl'>
+                <div className='grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-5 responsive-card-mid-xl '>
                     {Array.isArray(data) && data.map(plant => (
                         <NewPlants plant={plant} key={plant._id} />
                     ))}
                 </div>
             </div>
 
-            <section className="bg-gradient-to-r from-green-100 to-green-50 py-10 px-5 rounded-t-md">
+            <section className="bg-gradient-to-r from-green-100 to-green-50 py-10 px-5 rounded-t-md md:w-11/12 mx-auto mt-5">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-bold text-green-800 mb-4">Seasonal Plant Care Tips</h2>
                     <p className="text-lg text-green-700 mb-6">Adjust your care strategy with the seasons for healthier, happier plants.</p>
@@ -40,7 +42,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="bg-[#F9FBE7] py-12 rounded-b-md">
+            <section className="bg-[#F9FBE7] py-12  md:w-11/12 mx-auto">
                 <div className="max-w-5xl mx-auto px-4">
                     <h2 className="text-3xl font-bold text-[#558B2F] text-center mb-8">🌍 Rare & Exotic Plant Spotlight</h2>
                     <div className="grid md:grid-cols-2 gap-8 responsive-card-mid-xl">
@@ -57,6 +59,8 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+            <PromotionalOffer/>
+            <Newsletter/>
         </div>
     );
 };

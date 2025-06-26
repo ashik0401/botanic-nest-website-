@@ -40,7 +40,7 @@ const Navbar = () => {
         <>
             <li>
                 <NavLink
-                    className={({ isActive }) => `m-2 ${isActive ? 'text-[#8BC34A]' : ''} font-bold`}
+                    className={({ isActive }) => `m-2 ${isActive ? 'underline' : ''} font-bold`}
                     to="/"
                     onClick={handleLinkClick}
                 >
@@ -49,7 +49,7 @@ const Navbar = () => {
             </li>
             <li>
                 <NavLink
-                    className={({ isActive }) => `m-2 ${isActive ? 'text-[#8BC34A]' : ''} font-bold`}
+                    className={({ isActive }) => `m-2 ${isActive ? 'underline' : ''} font-bold`}
                     to="/all-plants"
                     onClick={handleLinkClick}
                 >
@@ -58,29 +58,60 @@ const Navbar = () => {
             </li>
             <li>
                 <NavLink
-                    className={({ isActive }) => `m-2 ${isActive ? 'text-[#8BC34A]' : ''} font-bold`}
-                    to="/add-plants"
+                    className={({ isActive }) => `m-2 ${isActive ? 'underline' : ''} font-bold`}
+                    to="/aboutUs"
                     onClick={handleLinkClick}
                 >
-                    Add Plant
+                    AboutUs
                 </NavLink>
             </li>
             <li>
                 <NavLink
-                    className={({ isActive }) => `m-2 ${isActive ? 'text-[#8BC34A]' : ''} font-bold`}
-                    to="/my-plants"
+                    className={({ isActive }) => `m-2 ${isActive ? 'underline' : ''} font-bold`}
+                    to="/contact"
                     onClick={handleLinkClick}
                 >
-                    My Plants
+                    Contact
                 </NavLink>
             </li>
+            <li>
+                <NavLink
+                    className={({ isActive }) => `m-2 ${isActive ? 'underline' : ''} font-bold`}
+                    to="/support"
+                    onClick={handleLinkClick}
+                >
+                    Support
+                </NavLink>
+            </li>
+            {
+                user && <li>
+                    <NavLink
+                        className={({ isActive }) => `m-2 ${isActive ? 'underline' : ''} font-bold`}
+                        to="/add-plants"
+                        onClick={handleLinkClick}
+                    >
+                        Add Plant
+                    </NavLink>
+                </li>
+            }
+            {
+                user && <li>
+                    <NavLink
+                        className={({ isActive }) => `m-2 ${isActive ? 'underline' : ''} font-bold`}
+                        to="/my-plants"
+                        onClick={handleLinkClick}
+                    >
+                        My Plants
+                    </NavLink>
+                </li>
+            }
         </>
     );
 
     return (
-        <div className='lg:px-15'>
-            <div className="navbar ">
-                <div className="navbar-start">
+        <div className='sticky top-0 z-100 bg-[#8BC34A] '>
+            <div className="navbar h-15 lg:w-11/12 mx-auto flex justify-between items-center">
+                <div className="flex items-center">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -91,17 +122,20 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <div className="flex gap-1 items-center">
+
+
+
+                    <div className="flex gap-1  items-center">
                         <img className="w-14" src={logo} alt="logo" />
-                        <Link to="/" className="text-3xl font-bold text-[#8BC34A] hidden md:block new">BotaniNest</Link>
+                        <Link to="/" className="text-3xl font-bold  hidden md:block new">BotanicNest</Link>
                     </div>
                 </div>
 
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">{links}</ul>
+                <div className=" lg:block hidden">
+                    <ul className="flex items-center justify-center gap-2">{links}</ul>
                 </div>
 
-                <div className="navbar-end gap-2">
+                <div className="gap-2 flex items-center">
                     <ThemeToggle />
                     {loading ? <Loading /> : (
                         user ? (
@@ -115,41 +149,50 @@ const Navbar = () => {
                                 >
                                     <img className="w-10 h-10 object-cover rounded-full" src={user.photoURL || userImage} alt="User" />
                                 </div>
-                               <div className='hidden md:block'>
-                                 {!isClickOpen && (
-                                    <Tooltip
-                                        id="profile-tooltip"
-                                        place="bottom"
-                                        positionStrategy="fixed"
-                                        popperOptions={{
-                                            modifiers: [
-                                                { name: 'flip', enabled: false },
-                                                { name: 'preventOverflow', options: { boundary: 'viewport' } },
-                                            ],
-                                        }}
-                                        style={{ whiteSpace: 'pre-line', zIndex: 9999 }}
-                                    />
-                                )}
-                               </div>
+                                <div className='hidden md:block'>
+                                    {!isClickOpen && (
+                                        <Tooltip
+                                            id="profile-tooltip"
+                                            place="bottom"
+                                            positionStrategy="fixed"
+                                            popperOptions={{
+                                                modifiers: [
+                                                    { name: 'flip', enabled: false },
+                                                    { name: 'preventOverflow', options: { boundary: 'viewport' } },
+                                                ],
+                                            }}
+                                            style={{ whiteSpace: 'pre-line', zIndex: 9999 }}
+                                        />
+                                    )}
+                                </div>
 
                                 {isClickOpen && (
                                     <div className="absolute right-0 mt-3 p-2 shadow rounded-box font-bold min-w-40 z-50 bg-[#8BC34A]">
                                         <h2 className="text-base font-semibold">{user.displayName || 'No Name'}</h2>
                                         <p className="text-sm">{user.email}</p>
+                                       <div className='border rounded p-2 '>
+                                         <button className='btn bg-transparent border-gray-500 shadow-none p-0 text-center w-full border mb-1'>
+                                            <Link
+                                            to='/dashboard'
+                                            >
+                                            Dashboard
+                                            </Link>
+                                        </button>
                                         <button
                                             onClick={handleLogOut}
-                                            className="border-none text-red-600 bg-transparent font-semibold mt-2 cursor-pointer w-full text-left px-2"
+                                            className="btn shadow-none border-gray-500 text-red-600 bg-transparent font-semibold text-center cursor-pointer w-full border "
                                         >
                                             Log Out
                                         </button>
+                                       </div>
                                     </div>
                                 )}
                             </div>
                         ) : (
                             <div className="space-x-2 flex items-center">
-                                <Link to="/login" className="btn bg-[#689F38]">Log-In</Link>
+                                <Link to="/login" className="btn shadow-none border-none bg-[#689F38]">Log-In</Link>
                                 <div className="hidden md:block">
-                                    <Link to="/register" className="btn bg-[#689F38]">Register</Link>
+                                    <Link to="/register" className="btn shadow-none border-none bg-[#689F38]">Register</Link>
                                 </div>
                             </div>
                         )

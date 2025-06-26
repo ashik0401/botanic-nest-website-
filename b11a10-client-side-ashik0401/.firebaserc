@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "botaninest"
-  }
+    "default": "plant-care-app-5b85c",
+    "firebase use dev": "plant-care-app-5b85c"
+  },
+  "targets": {},
+  "etags": {}
 }
