@@ -15,7 +15,7 @@ const AddPlant = () => {
         const NewPlants = Object.fromEntries(formData.entries());
 
 
-        fetch('https://plant-care-tracker-sarver.vercel.app/new-plants', {
+        fetch('https://plants-care-app.vercel.app/new-plants', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

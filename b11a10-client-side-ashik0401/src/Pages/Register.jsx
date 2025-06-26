@@ -31,7 +31,7 @@ const Register = () => {
             lastLogInTime: result.user?.metadata?.creationTime
           };
 
-          fetch('https://plant-care-tracker-sarver.vercel.app/users', {
+          fetch('https://plants-care-app.vercel.app/users', {
             method: 'POST',
             headers: {
               'content-type': 'application/json'

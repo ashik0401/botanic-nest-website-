@@ -27,7 +27,7 @@ const Update = () => {
             return;
         }
 
-        fetch(`https://plant-care-tracker-sarver.vercel.app/update-plants/${plant._id}`, {
+        fetch(`https://plants-care-app.vercel.app/update-plants/${plant._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

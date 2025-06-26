@@ -8,12 +8,12 @@ const DashboardOverview = () => {
     const [myPlants, setMyPlants] = useState(0);
 
     useEffect(() => {
-        fetch('http://localhost:3000/plants-count')
+        fetch('https://plants-care-app.vercel.app/plants-count')
             .then(res => res.json())
             .then(data => setTotalPlants(data.total));
 
         if (user?.email) {
-            fetch(`http://localhost:3000/plants-count/${user.email}`)
+            fetch(`https://plants-care-app.vercel.app/plants-count/${user.email}`)
                 .then(res => res.json())
                 .then(data => setMyPlants(data.total));
         }

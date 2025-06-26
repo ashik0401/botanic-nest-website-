@@ -30,7 +30,7 @@ const MyPlants = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://plant-care-tracker-sarver.vercel.app/plants/${_id}`, {
+                fetch(`https://plants-care-app.vercel.app/plants/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
