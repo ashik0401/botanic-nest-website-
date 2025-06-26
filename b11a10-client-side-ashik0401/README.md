@@ -3,7 +3,7 @@
 A full-stack, responsive web application to help users log, track, and manage care tasks for their indoor and outdoor plants. This is a personal plant assistant that supports secure user accounts, personalized dashboards, and stylish, meaningful plant management tools.
 
 ### 🔗 Live Name: BotaniNest
-### 🔗 Live Website: (https://botaninest.web.app/)
+### 🔗 Live Website: (https://plant-care-app-5b85c.web.app/)
 
 ---
 
