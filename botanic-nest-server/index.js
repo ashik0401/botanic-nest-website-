@@ -21,12 +21,11 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    await client.connect(); // Ensure connection to MongoDB
+    await client.connect();
 
     const plantsCollection = client.db('plantsDB').collection('plants');
     const usersCollection = client.db('plantsDB').collection('users');
 
-    // ---------- USERS ----------
     app.post('/users', async (req, res) => {
       const userProfile = req.body;
       const result = await usersCollection.insertOne(userProfile);
@@ -38,7 +37,6 @@ async function run() {
       res.send(result);
     });
 
-    // ---------- PLANTS ----------
     app.get('/all-plants', async (req, res) => {
       const result = await plantsCollection.find().toArray();
       res.send(result);
@@ -96,11 +94,9 @@ async function run() {
         const count = await plantsCollection.estimatedDocumentCount();
         res.send({ total: count });
       } catch (err) {
-        console.error('Failed to count plants:', err);
         res.status(500).send({ error: 'Failed to count documents' });
       }
     });
-
 
     app.get('/plants-count/:email', async (req, res) => {
       try {
@@ -111,8 +107,6 @@ async function run() {
         res.status(500).send({ error: 'Failed to count user-specific plants' });
       }
     });
-
-
 
     console.log('✅ MongoDB Connected Successfully');
   } catch (err) {
