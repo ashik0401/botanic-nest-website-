@@ -112,7 +112,7 @@ async function run() {
   } catch (err) {
     console.error('❌ MongoDB connection error:', err);
   }
-  await client.connect();
+  // await client.connect();
 }
 
 run().catch(console.dir);
