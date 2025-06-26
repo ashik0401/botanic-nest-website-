@@ -1,15 +1,15 @@
-const express = require('express')
+const express = require('express');
 const cors = require('cors');
-require('dotenv').config()
+require('dotenv').config();
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
-const app = express()
-const port = process.env.PORT || 3000;
-app.use(cors());
-app.use(express.json())
 
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(cors());
+app.use(express.json());
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@am.ochad9p.mongodb.net/?retryWrites=true&w=majority&appName=AM`;
-
 
 const client = new MongoClient(uri, {
   serverApi: {
@@ -21,141 +21,112 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
+    await client.connect(); // Ensure connection to MongoDB
 
     const plantsCollection = client.db('plantsDB').collection('plants');
     const usersCollection = client.db('plantsDB').collection('users');
 
-
+    // ---------- USERS ----------
     app.post('/users', async (req, res) => {
       const userProfile = req.body;
       const result = await usersCollection.insertOne(userProfile);
-      res.send(result)
-    })
-
-
+      res.send(result);
+    });
 
     app.get('/users', async (req, res) => {
       const result = await usersCollection.find().toArray();
       res.send(result);
     });
 
-
-
+    // ---------- PLANTS ----------
     app.get('/all-plants', async (req, res) => {
       const result = await plantsCollection.find().toArray();
       res.send(result);
     });
 
-
-    app.get('/all-plants', async (req, res) => {
-      try {
-        const data = await MyModel.find().sort({ careLevel: 1 });
-        res.json(data);
-      }
-      catch (err) {
-        res.status(500).json({ error: 'Failed to Fetch Data' });
-      }
-    });
-
-
-
     app.get('/all-plants/:id', async (req, res) => {
       const id = req.params.id;
-      const query = { _id: new ObjectId(id) }
+      const query = { _id: new ObjectId(id) };
       const result = await plantsCollection.findOne(query);
-      res.send(result)
-
-
-    })
-
-
-
-    app.post('/new-plants', async (req, res) => {
-      const plant = {
-        ...req.body,
-        createdAt: new Date()
-      };
-
-      const result = await plantsCollection.insertOne(plant);
-      res.send(result);
-
-    });
-
-
-
-    app.put('/update-plants/:id', async (req, res) => {
-      const id = req.params.id;
-      const filter = { _id: new ObjectId(id) };
-      const options = { upsert: true };
-
-      const updatePlants = {
-        ...req.body,
-        updatedAt: new Date()
-      };
-
-      const updateDoc = {
-        $set: updatePlants
-      };
-
-      const result = await plantsCollection.updateOne(filter, updateDoc, options);
       res.send(result);
     });
-
-
-
-
-    app.delete('/plants/:id', async (req, res) => {
-      try {
-        const id = req.params.id;
-        const result = await plantsCollection.deleteOne({ _id: new ObjectId(id) });
-        res.send(result);
-      } catch (error) {
-        console.error('Error deleting plant:', error);
-        res.status(500).send({ error: 'Internal server error' });
-      }
-    });
-
-
-
-    app.get('/new-plants', async (req, res) => {
-      const result = await plantsCollection.find().sort({ createdAt: -1 }).limit(6).toArray();
-      res.send(result);
-    });
-
-
-
-
-    app.get('/new-plants/:id', async (req, res) => {
-      const id = req.params.id;
-      const query = { _id: new ObjectId(id) }
-      const result = await plantsCollection.findOne(query);
-      res.send(result)
-    })
 
     app.post('/new-plants', async (req, res) => {
       const newPlant = {
         ...req.body,
         createdAt: new Date()
       };
-
       const result = await plantsCollection.insertOne(newPlant);
-      res.send(result)
+      res.send(result);
     });
 
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // await client.close();
+    app.get('/new-plants', async (req, res) => {
+      const result = await plantsCollection.find().sort({ createdAt: -1 }).limit(6).toArray();
+      res.send(result);
+    });
+
+    app.get('/new-plants/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await plantsCollection.findOne(query);
+      res.send(result);
+    });
+
+    app.put('/update-plants/:id', async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const updateDoc = {
+        $set: {
+          ...req.body,
+          updatedAt: new Date()
+        }
+      };
+      const result = await plantsCollection.updateOne(filter, updateDoc, { upsert: true });
+      res.send(result);
+    });
+
+    app.delete('/plants/:id', async (req, res) => {
+      const id = req.params.id;
+      const result = await plantsCollection.deleteOne({ _id: new ObjectId(id) });
+      res.send(result);
+    });
+
+    app.get('/plants-count', async (req, res) => {
+      try {
+        const count = await plantsCollection.estimatedDocumentCount();
+        res.send({ total: count });
+      } catch (err) {
+        console.error('Failed to count plants:', err);
+        res.status(500).send({ error: 'Failed to count documents' });
+      }
+    });
+
+
+    app.get('/plants-count/:email', async (req, res) => {
+      try {
+        const email = req.params.email;
+        const count = await plantsCollection.countDocuments({ userEmail: email });
+        res.send({ total: count });
+      } catch (err) {
+        res.status(500).send({ error: 'Failed to count user-specific plants' });
+      }
+    });
+
+
+
+    console.log('✅ MongoDB Connected Successfully');
+  } catch (err) {
+    console.error('❌ MongoDB connection error:', err);
   }
+  await client.connect();
 }
+
 run().catch(console.dir);
 
-
-
-
 app.get('/', (req, res) => {
-  res.send('taking care of plants is necessary!')
-})
+  res.send('🌱 Taking care of plants is necessary!');
+});
 
 app.listen(port, () => {
-  console.log(`Plants server is running on port ${port}`)
-})
+  console.log(`🚀 Plants server is running on port ${port}`);
+});
