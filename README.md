@@ -3,7 +3,7 @@
 A full-stack, responsive web application to help users log, track, and manage care tasks for their indoor and outdoor plants. This is a personal plant assistant that supports secure user accounts, personalized dashboards, and stylish, meaningful plant management tools.
 
 ### 🔗 Live Name: BotaniNest
-### 🔗 Live Website: (https://plant-care-app-5b85c.web.app/)
+### 🔗 Live Website: (https://botanic-nest.web.app/)
 
 ---
 
@@ -85,7 +85,7 @@ Short profile of the developer and the inspiration behind the app
 ## 📞 Contact
 - Contact form for user inquiries and suggestions
 
-- Direct email address: ashik@example.com
+- Direct email address: gmail@example.com
 
 - Links to social media or LinkedIn for professional communication
 
@@ -96,7 +96,7 @@ Short profile of the developer and the inspiration behind the app
 
 - Customer support form for direct assistance
 
-- Email support: support@botanihub.app             F
+- Email support: support@botanihub.app             
 
 ### ⚠️ 404 Page
 - Custom 404 Not Found page for broken routes
