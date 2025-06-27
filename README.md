@@ -77,25 +77,26 @@ Goals to promote indoor gardening and plant mindfulness
 
 Short profile of the developer and the inspiration behind the app
 
-📊 Dashboard
-Personalized user dashboard with plant stats
-Integrated layout for profile info and add-new shortcuts
+## 📊 Dashboard
+- Personalized user dashboard with plant stats
 
-📞 Contact
-Contact form for user inquiries and suggestions
+- Integrated layout for profile info and add-new shortcuts
 
-Direct email address: ashik@example.com
+## 📞 Contact
+- Contact form for user inquiries and suggestions
 
-Links to social media or LinkedIn for professional communication
+- Direct email address: ashik@example.com
 
-🆘 Support
-FAQ section with common user issues and solutions
+- Links to social media or LinkedIn for professional communication
 
-Guides on adding plants, updating care, and troubleshooting
+## 🆘 Support
+- FAQ section with common user issues and solutions
 
-Customer support form for direct assistance
+- Guides on adding plants, updating care, and troubleshooting
 
-Email support: support@botanihub.app             F
+- Customer support form for direct assistance
+
+- Email support: support@botanihub.app             F
 
 ### ⚠️ 404 Page
 - Custom 404 Not Found page for broken routes
