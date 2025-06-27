@@ -70,6 +70,33 @@ A full-stack, responsive web application to help users log, track, and manage ca
 - View page styled with creative layout
 - Update page pre-filled with current plant data
 
+ About Us
+Overview of the mission behind BotaniNest
+
+Goals to promote indoor gardening and plant mindfulness
+
+Short profile of the developer and the inspiration behind the app
+
+📊 Dashboard
+Personalized user dashboard with plant stats
+Integrated layout for profile info and add-new shortcuts
+
+📞 Contact
+Contact form for user inquiries and suggestions
+
+Direct email address: ashik@example.com
+
+Links to social media or LinkedIn for professional communication
+
+🆘 Support
+FAQ section with common user issues and solutions
+
+Guides on adding plants, updating care, and troubleshooting
+
+Customer support form for direct assistance
+
+Email support: support@botanihub.app             F
+
 ### ⚠️ 404 Page
 - Custom 404 Not Found page for broken routes
 
