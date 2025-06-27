@@ -14,13 +14,14 @@ const PlantsDetails = () => {
         Description,
         category,
         careLevel,
-        last_watered_date,
-        next_watering_date,
+        humidity,
+        temperature,
         userName,
         userEmail,
         photo,
         createdAt,
-        updatedAt } = data
+        updatedAt,
+        dailyWater } = data
 
 
 
@@ -45,10 +46,11 @@ const PlantsDetails = () => {
                         <h2><strong>careLevel:</strong>{careLevel}</h2>
                         <h2><strong>health_status:</strong>{" "}{health_status ? health_status : "N/A"}</h2>
                         <h2><strong>watering_frequency:</strong><span className='text-md'>{" "}{watering_frequency ? watering_frequency : "N/A"}</span></h2>
+                        <h2><strong>Daily Water:</strong><span className='text-md'>{" "}{dailyWater ? dailyWater : "N/A"}</span></h2>
                         <p><strong>Description:</strong>{" "}{Description ? Description : "N/A"}</p>
 
-                        <h3><strong>last_watered_date:</strong><span className='text-sm'>{" "}{last_watered_date ? last_watered_date : "N/A"}</span></h3>
-                        <h3><strong>next_watering_date:</strong><span className='text-sm'>{" "}{next_watering_date ? next_watering_date : "N/A"}</span></h3>
+                        <h3><strong>Humidity:</strong><span className='text-md'>{" "}{humidity ? humidity : "N/A"}</span></h3>
+                        <h3><strong>Temperature:</strong><span className='text-md'>{" "}{temperature ? temperature : "N/A"}</span></h3>
 
                         <h3>
                             {
