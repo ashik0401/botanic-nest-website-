@@ -41,7 +41,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-
+            <PromotionalOffer />
             <section className="bg-[#F9FBE7] py-12  md:w-11/12 mx-auto">
                 <div className="max-w-5xl mx-auto px-4">
                     <h2 className="text-3xl font-bold text-[#558B2F] text-center mb-8">🌍 Rare & Exotic Plant Spotlight</h2>
@@ -59,8 +59,8 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <PromotionalOffer/>
-            <Newsletter/>
+
+            <Newsletter />
         </div>
     );
 };

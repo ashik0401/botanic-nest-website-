@@ -31,7 +31,7 @@ const Register = () => {
             lastLogInTime: result.user?.metadata?.creationTime
           };
 
-          fetch('https://botanic-nest.vercel.app/users', {
+          fetch('http://localhost:3000/users', {
             method: 'POST',
             headers: {
               'content-type': 'application/json'

@@ -105,6 +105,17 @@ const Navbar = () => {
                     </NavLink>
                 </li>
             }
+            {
+                user && <li>
+                    <NavLink
+                        className={({ isActive }) => `m-2 ${isActive ? 'underline' : ''} font-bold`}
+                        to="/dashboard"
+                        onClick={handleLinkClick}
+                    >
+                        Dashboard
+                    </NavLink>
+                </li>
+            }
         </>
     );
 
@@ -132,7 +143,7 @@ const Navbar = () => {
                 </div>
 
                 <div className=" lg:block hidden">
-                    <ul className="flex items-center justify-center gap-2">{links}</ul>
+                    <ul className="flex items-center justify-center ">{links}</ul>
                 </div>
 
                 <div className="gap-2 flex items-center">
@@ -170,14 +181,8 @@ const Navbar = () => {
                                     <div className="absolute right-0 mt-3 p-2 shadow rounded-box font-bold min-w-40 z-50 bg-[#8BC34A]">
                                         <h2 className="text-base font-semibold">{user.displayName || 'No Name'}</h2>
                                         <p className="text-sm">{user.email}</p>
-                                       <div className='border rounded p-2 '>
-                                         <button className='btn bg-transparent border-gray-500 shadow-none p-0 text-center w-full border mb-1'>
-                                            <Link
-                                            to='/dashboard'
-                                            >
-                                            Dashboard
-                                            </Link>
-                                        </button>
+                                       <div className=' '>
+                                        
                                         <button
                                             onClick={handleLogOut}
                                             className="btn shadow-none border-gray-500 text-red-600 bg-transparent font-semibold text-center cursor-pointer w-full border "
