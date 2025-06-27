@@ -3,7 +3,7 @@
 A full-stack, responsive web application to help users log, track, and manage care tasks for their indoor and outdoor plants. This is a personal plant assistant that supports secure user accounts, personalized dashboards, and stylish, meaningful plant management tools.
 
 ### 🔗 Live Name: BotaniNest
-### 🔗 Live Website: (https://plant-care-app-5b85c.web.app/)
+### 🔗 Live Website: (https://botanic-nest.web.app/)
 
 ---
 
@@ -70,6 +70,34 @@ A full-stack, responsive web application to help users log, track, and manage ca
 - View page styled with creative layout
 - Update page pre-filled with current plant data
 
+ About Us
+Overview of the mission behind BotaniNest
+
+Goals to promote indoor gardening and plant mindfulness
+
+Short profile of the developer and the inspiration behind the app
+
+## 📊 Dashboard
+- Personalized user dashboard with plant stats
+
+- Integrated layout for profile info and add-new shortcuts
+
+## 📞 Contact
+- Contact form for user inquiries and suggestions
+
+- Direct email address: gmail@example.com
+
+- Links to social media or LinkedIn for professional communication
+
+## 🆘 Support
+- FAQ section with common user issues and solutions
+
+- Guides on adding plants, updating care, and troubleshooting
+
+- Customer support form for direct assistance
+
+- Email support: support@botanihub.app             
+
 ### ⚠️ 404 Page
 - Custom 404 Not Found page for broken routes
 
@@ -88,13 +116,45 @@ A full-stack, responsive web application to help users log, track, and manage ca
 All sensitive keys (Firebase, MongoDB URI, etc.) are stored in `.env` files and never exposed in code.
 
 ---
+## 🛠️ Local Installation and Setup
 
-## 📌 GitHub Commit Requirements
+## 1. Clone the repository
 
-- ✅ **15+ meaningful commits** on the client side
-- ✅ **8+ meaningful commits** on the server side
 
+## 2. Setup the Client
+- cd client
+- npm install
+
+- Create a .env file inside the /client folder with:
+- REACT_APP_API_URL=http://localhost:5000
+- REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
+- REACT_APP_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+- REACT_APP_FIREBASE_PROJECT_ID=your_firebase_project_id
+- REACT_APP_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+- REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_firebase_sender_id
+- REACT_APP_FIREBASE_APP_ID=your_firebase_app_id
+
+- Start the React client:
+- npm run dev
+
+## 3. Setup the Server
+- cd ../server
+- npm install
+
+- Create a .env file inside the /server folder with:
+- PORT=5000
+- MONGO_URI=your_mongodb_connection_string
+- JWT_SECRET=your_jwt_secret
+- FIREBASE_SERVICE_ACCOUNT=your_firebase_service_account_json_as_string_or_path
+
+- Start the server:
+- npm run start
+
+ - Open in Browser
+ - Go to http://localhost:3000 to use the application locally.
 ---
+
+
 
 ## 👨‍💻 Author
 
@@ -106,4 +166,3 @@ All sensitive keys (Firebase, MongoDB URI, etc.) are stored in `.env` files and 
 ## 📜 License
 
 This project is licensed under the MIT License.
-
