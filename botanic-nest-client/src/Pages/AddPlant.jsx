@@ -12,7 +12,7 @@ const AddPlant = () => {
         const formData = new FormData(form);
         const NewPlants = Object.fromEntries(formData.entries());
 
-        fetch('http://localhost:3000/new-plants', {
+        fetch('https://botanic-nest.vercel.app/new-plants', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

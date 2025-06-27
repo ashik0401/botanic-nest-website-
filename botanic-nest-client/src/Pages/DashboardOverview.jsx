@@ -14,19 +14,19 @@ const DashboardLayout = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`http://localhost:3000/all-plants`)
+    fetch(`https://botanic-nest.vercel.app/all-plants`)
       .then((res) => res.json())
       .then((data) => setPlants(data));
 
-    fetch('http://localhost:3000/plants-count')
+    fetch('https://botanic-nest.vercel.app/plants-count')
       .then((res) => res.json())
       .then((data) => setTotalPlants(data.total));
 
-    fetch(`http://localhost:3000/plants-count/${user.email}`)
+    fetch(`https://botanic-nest.vercel.app/plants-count/${user.email}`)
       .then((res) => res.json())
       .then((data) => setMyPlants(data.total));
 
-    fetch('http://localhost:3000/new-plants')
+    fetch('https://botanic-nest.vercel.app/new-plants')
       .then((res) => res.json())
       .then((data) => {
         setRecentPlants(data.slice(0, 3));
