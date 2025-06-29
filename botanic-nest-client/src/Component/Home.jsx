@@ -11,21 +11,21 @@ const Home = () => {
     return (
         <div>
             <Banner />
-            <div className='md:w-11/12 mx-auto px-5'>
+            <div className='md:w-11/12 md:mx-auto mx-5 '>
                 <div className='flex items-center mt-10 mb-5'>
                     <img className='w-20 h-20 bg-transparent' src={leaf} alt="" />
                     <h2 className='text-[#8BC34A] text-4xl font-semibold my-3 new'>
                         <i>new arrivals</i>
                     </h2>
                 </div>
-                <div className='grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-5 responsive-card-mid-xl '>
+                <div className='grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 responsive-card-mid-xl '>
                     {Array.isArray(data) && data.map(plant => (
                         <NewPlants plant={plant} key={plant._id} />
                     ))}
                 </div>
             </div>
 
-            <section className="bg-[#E6F4EA] py-10 px-5 rounded-md shadow md:w-11/12 mx-auto mt-10 ">
+            <section className="bg-[#E6F4EA] mx-5 py-10 px-5 rounded-md shadow md:w-11/12 md:mx-auto mt-10 ">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-bold text-green-800 mb-4">Seasonal Plant Care Tips</h2>
                     <p className="text-lg text-green-700 mb-6">Adjust your care strategy with the seasons for healthier, happier plants.</p>
@@ -42,7 +42,7 @@ const Home = () => {
                 </div>
             </section>
             <PromotionalOffer />
-            <section className="bg-[#F9FBE7] py-12 my-10 shadow rounded-md  md:w-11/12 mx-auto">
+            <section className="bg-[#F9FBE7] py-12 my-10 shadow rounded-md  md:w-11/12 mx-5 md:mx-auto">
                 <div className="max-w-5xl mx-auto px-4">
                     <h2 className="text-3xl font-bold text-[#558B2F] text-center mb-8">🌍 Rare & Exotic Plant Spotlight</h2>
                     <div className="grid md:grid-cols-2 gap-8 responsive-card-mid-xl">

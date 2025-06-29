@@ -75,7 +75,7 @@ const AllPlants = () => {
         </fieldset>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-5 w-11/12 mx-auto">
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  w-11/12 mx-auto">
         {plants.filter(plant => plant.name).map(plant => (
           <div key={plant._id} className="card bg-[#F1F8E9] shadow-md rounded-md overflow-hidden transition-transform duration-300 hover:-translate-y-2 dark:text-black">
             <figure className="w-full h-48 md:h-56">
