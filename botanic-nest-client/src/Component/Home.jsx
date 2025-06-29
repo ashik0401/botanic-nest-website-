@@ -25,7 +25,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <section className="bg-gradient-to-r from-green-100 to-green-50 py-10 px-5 rounded-t-md md:w-11/12 mx-auto mt-5">
+            <section className="bg-[#E6F4EA] py-10 px-5 rounded-md shadow md:w-11/12 mx-auto mt-10 ">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-bold text-green-800 mb-4">Seasonal Plant Care Tips</h2>
                     <p className="text-lg text-green-700 mb-6">Adjust your care strategy with the seasons for healthier, happier plants.</p>
@@ -42,7 +42,7 @@ const Home = () => {
                 </div>
             </section>
             <PromotionalOffer />
-            <section className="bg-[#F9FBE7] py-12  md:w-11/12 mx-auto">
+            <section className="bg-[#F9FBE7] py-12 my-10 shadow rounded-md  md:w-11/12 mx-auto">
                 <div className="max-w-5xl mx-auto px-4">
                     <h2 className="text-3xl font-bold text-[#558B2F] text-center mb-8">🌍 Rare & Exotic Plant Spotlight</h2>
                     <div className="grid md:grid-cols-2 gap-8 responsive-card-mid-xl">
