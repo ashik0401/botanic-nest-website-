@@ -1,6 +1,6 @@
 # 🌿 Plant Care Tracker
 
-A full-stack, responsive web application to help users log, track, and manage care tasks for their indoor and outdoor plants. This is a personal plant assistant that supports secure user accounts, personalized dashboards, and stylish, meaningful plant management tools.
+A full-stack, responsive web application to help users log, track, and manage care tasks for their indoor  plants. This is a personal plant assistant that supports secure user accounts, personalized dashboards, and stylish, meaningful plant management tools.
 
 ### 🔗 Live Name: BotaniNest
 ### 🔗 Live Website: (https://botanic-nest.web.app/)
